@@ -1,73 +1,14 @@
-Likely this text will have more grammatic issues than any text you ever read. 
-It is 2 to 4 o'clock in the night for me while I am writing the text.
+# nsuns4 Downgrading
+This is a open source program which is using Depot Downloader to downgrade Nsuns4 to any version.
 
+# Compiling
+Just open it in Vs and build it..
 
+# Issues
+Currently I did not implement anything to copy paste the game in the steam dirc. (You need to replace the game files manually.
 
+# Downgrading
+This does nothing more than just runs a batch file which executes a command to downgrade the game. You just need to enter your steam name and password to downgrade the game.
+There is no need to look for the -appid -depotid -manifestid -language -content
 
-Hello, in this reposity you can learn how to mod nsuns 4. We gonna focus on extracting and repacking most files as well as how to use the data_win32 folder.
-Fist of all you need a few programs. The programs you will need to follow everything step by step are: HxD (Hex Editor) https://mh-nexus.de/de/hxd/, 
-
-
-When you have all programs ready, we will start to extract the important game files for modding. So locate to the root folder of the game for steam its:
-\Program Files (x86)\Steam\steamapps\common\NARUTO SHIPPUDEN Ultimate Ninja STORM 4. Than open the /data/launch/ folder and copy the data1.cpk file to the root
-of CriPackTools folder. Also copy the file /data/patch/x(NUMBEROFYOURGAMEVERSION)/data.cpk to CriPackTools. Now go to your CriPackTools root folder and open
-the 1-EXTRACT_ALL(no_decompression).bat file to extravt all .cpk files in the root directory of CriPackTools. (You can also extract other .cpk files than me,
-but those .cpk files are including the character and skill model files, as well as some other important moddign files.)Btw you can use CpkBrowser to look
-in the .cpk file and see if it has anything you may need, and than extract it with CriPackTools. NOTE: CPKBrowser has an option to extract
-the .cpk you open with it, but all files you get with CPKBrowser are decrypted and can not previewed or probably Hex edited, so make sure to use CriPackTools.
-
-
-Model Editing: Before you just want to look which one is easier, both need time at the begging, but model editing is definitly more complicated.
-Text will be here later
-
-
-
-Cutscene Editing: Before you just want to look which one is easier, both need time at the begging, but model editing is definitly more complicated.
-To mod the cutscenes in the game you first of all need to extract /data/disc/movieX.cpk. (Data/disc from the root of the game, the X is for 2 or other number because there
-are about 4 files named movie1.cpk, movie2.cpk and so on.)
-We will replace the Story Mode first level cutscenes, so you need to extract movie2.cpk.
-Lets start:
-Before starting make sure you did download all programs for cutscene replacing (I marked them as optional programs)
-
-How to edit cutscenes:
-In our example we want to edit the first level of the Story mode, so we extract movie2.cpk. When you done that, open vgmtoolbox.
-In vgmtoolbox click on Misc. tools, than on Stram tools and Video Demultiplexer. When you click Video Demultiplexer chose USM (CRI Movie 2) as format.
-Enable Video and audio extraction if you need the audio of the cutscene, if you just want to see which cutscene the .usm file is enable extract Video only.
-You will get a .m2v video as output, just use VLC Media player to open it. If it is the cutscene you want to edit, back it up somewhere
-
-Now you need an other Video to use instead of the orginal cutscene. If you owned other Storm games you are lucky because you can use .usm files of it.
-For example Storm 2 or Storm R. I got some cutscenes from storm r. which I will just name like the orignal cutscene. Than make folder and name it to what ever you want.
-In the folder create a folder named data, in the data folder make a new folder and name it movie. Than copy all .usm files you got from movie2.cpk execpting the cutscenes
-you want to replace in this movie/ folder. Take the cutscene you made or extracted from other games and pase them into the movie folder as well.
-In my example I wanted to replace the first level cutscene so I gonna name the new cutscene like to old one (ptm02_a010 file ending needs to be .usm of course)
-NOTE: All files from movie2.cpk are cutscenes which will be played after fight in Story mode. All of the .usm in movie2.cpk starting with ptmNUMBER_LETTER010.usm
-If two file starting with the same number for example: ptm2_a010 and ptm2_b010 they are for the same level. Means the cutscene starting with a "a" after its number,
-will be played first, than a fight will start, after the fight, the next cutscenes which has "b" after its number will be played. When the fight has more than one fight,
-the cutscene with "c" and/or "d" and so on will be played after tha next fights. So ptm2_a010.usm will be played before the fight in the first level, and ptm2_b010.usm
-will be played after the fight in the first level. I replaced both with cutscenes from other Storm games.
-
-
-
-Making your own .usm file and use it as a cutscene:
-Text will be here later
-
-
-
-
-Repack the modded/edited extracted files to a .cpk
-NOTE: All files from data.cpk or data1.cpk do not need to be repacked as .cpk, we will use the data_win32 folder for that later.
-To repack everything (in this example we will repack movie2.cpk with our replaced cutscenes) open up CPK Tools (CPKTOOLS.exe).
-In there click on the browse button, next to data path and select the folder in which you created the data/movie folders.
-Now uncheck the options Dir. Mask and Force Compress. Make a back up of the orignal movie2.cpk, click on browse for save path and located to
-the games root directory. Than go in the data/disc/ folder and select the movie2.cpk file. (Repacked .cpk just need to be named as the orginal one)
-When you click save it will ask you to replace, just chose yes and click on build. Containing on the new files in the .cpk it may take some time to build
-your new .cpk files and replace the old .cpk files.
-
-DATA_WIN32 folder
-If you edited a .xfbin file from data.cpk or data1.cpk. To use the .xfbin create folder named "data_win32" in the games root directory. When your .xfbin
-from the .cpk was in the foder /data/spc/ you gonna create a folder named "spc" in the data_win32 folder and paste the .xfbin in the the spc folder.
-So when you edited a xfbin from /data/spcload/ you will need to make a folder named "spcload" in the data_win32 and paste the xfbin in the new folder.
-I think you got how the data_win32 folder works, you can imagine it is the /data/ folder from the data.cpk or data1.cpk file. Just this data_win32 files
-which are in data_win32 will be loaded instead of the files from .cpk files. This can save much storage for your mod if you want to uppload it.
-Just zip your data_win32 folder and upload it. The person who download can just extract it in the games root. Unfortnely this is not working for all .cpk
-files.
+If the command shell is stuck at a percentage value click enter or space. If nothing happens just wait about 10 minutes and reclick. (Downgrading like that takes about 1-5 hours)
